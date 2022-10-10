@@ -26,7 +26,7 @@ class AccountsController < ApplicationController
       
     else
       session[:login_uid] = uid
-      redirect_to 'main'
+      redirect_to root_path
       
     end
   
