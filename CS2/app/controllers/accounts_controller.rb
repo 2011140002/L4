@@ -11,8 +11,9 @@ class AccountsController < ApplicationController
     uid = params[:uid]
     pass = params[:pass]
     if Account.find_by(uid: uid) == nil
-      session[:login_uid] = nil
       logger.debug("1")
+      session[:login_uid] = nil
+      
       render 'error'
       
     else
@@ -21,8 +22,8 @@ class AccountsController < ApplicationController
         session[:login_uid] = uid
         redirect_to root_path
       else
-        session[:login_uid] = nil
         logger.debug("2")
+        session[:login_uid] = nil
         render 'error'
       end
       
