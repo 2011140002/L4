@@ -8,7 +8,6 @@ class AccountsController < ApplicationController
   end
   
   def login
-    @account = Account.new
     uid = params[:account][:uid]
     pass = params[:account][:pass]
     if Account.find(uid: uid, pass: pass)
