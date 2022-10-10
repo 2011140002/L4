@@ -8,8 +8,8 @@ class AccountsController < ApplicationController
   end
   
   def login
-    uid = params[:account][:uid]
-    pass = params[:account][:pass]
+    uid = params[:uid]
+    pass = params[:pass]
     if Account.find(uid: uid, pass: pass)
       session[:login_uid] = uid
       redirect_to 'error'
