@@ -10,7 +10,7 @@ class AccountsController < ApplicationController
   def login
     uid = params[:uid]
     pass = params[:pass]
-    print(Account.find_by(uid: uid, pass: pass))
+    logger.debug(Account.find_by(uid: uid, pass: pass))
     if Account.find_by(uid: uid, pass: pass)
       session[:login_uid] = uid
       redirect_to 'main'
