@@ -16,7 +16,7 @@ class AccountsController < ApplicationController
       
     else
       account = Account.find_by(uid: params[:uid])
-      if account.pass = BCrypt::Password.new(pass)
+      if account.pass == BCrypt::Password.new(pass)
         session[:login_uid] = uid
         redirect_to root_path
       else
