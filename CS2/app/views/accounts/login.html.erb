@@ -1,4 +1,4 @@
-<%= form_tag(controller: 'accounts', action: 'login') do %>
+<%= form_tag '/accounts/login', method: :post do %>
 <%= label_tag :uid, 'ユーザーID' %>
 <%= text_field_tag :uid %>
 <%= label_tag :pass, 'パスワード' %>
