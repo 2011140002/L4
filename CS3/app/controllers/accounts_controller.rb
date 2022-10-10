@@ -10,19 +10,16 @@ class AccountsController < ApplicationController
   def login
     uid = params[:uid]
     pass = params[:pass]
-    if Account.find_by(uid: params[:uid]) == nil
+    logger.debug(uid)
+    logger.debug(pass)
+    logger.debug(Account.find_by(uid: uid, pass: pass))
+    if Account.find_by(uid: params[:uid], pass: params[:pass]) == nil
       session[:login_uid] = nil
       render 'error'
       
     else
-      account = Account.find_by(uid: params[:uid])
-      if account.pass = BCrypt::Password.new(pass)
-        session[:login_uid] = uid
-        redirect_to root_path
-      else
-        session[:login_uid] = nil
-        render 'error'
-      end
+      session[:login_uid] = uid
+      redirect_to root_path
       
     end
   
