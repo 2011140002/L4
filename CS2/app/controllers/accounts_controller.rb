@@ -13,7 +13,7 @@ class AccountsController < ApplicationController
     logger.debug((Account.find_by(uid: uid, pass: pass)).inspect)
     if Account.find_by(uid: uid, pass: pass)
       session[:login_uid] = uid
-      # redirect_to 'main'
+      redirect_to 'main'
     else
       session[:login_uid] = nil
       # render 'error'
