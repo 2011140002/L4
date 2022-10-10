@@ -1,4 +1,4 @@
-<%= form_tag '/accounts/login', url: {action: :login} do %>
+<%= form_tag({:action => 'login'},{:methid => :post}) do %>
 
   <%= label_tag :uid, 'ユーザーID' %>
   <%= text_field_tag :uid %>
