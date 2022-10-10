@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'accounts/main'
   post 'accounts/login'
   get 'accounts/error'
-  post delete 'accounts' ,to: 'accounts#logout'
+  post 'accounts'
+  post 'accounts' ,to: 'accounts#logout'
   
 end
