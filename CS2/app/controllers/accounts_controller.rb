@@ -12,6 +12,7 @@ class AccountsController < ApplicationController
     pass = params[:pass]
     logger.debug(uid)
     logger.debug(pass)
+    logger.debug(Account.find_by(uid: uid, pass: pass))
     if Account.find_by(uid: uid, pass: pass) == nil
       session[:login_uid] = nil
       render 'error'
