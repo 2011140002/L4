@@ -11,12 +11,14 @@ class AccountsController < ApplicationController
     uid = params[:uid]
     pass = params[:pass]
     logger.debug(Account.find_by(uid: uid, pass: pass))
-    if Account.find_by(uid: uid, pass: pass) != nil
-      session[:login_uid] = uid
-      redirect_to '/'
-    else
+    if Account.find_by(uid: uid, pass: pass) == nil
       session[:login_uid] = nil
       render 'error'
+      
+    else
+      session[:login_uid] = uid
+      redirect_to '/'
+      
     end
   
   end
