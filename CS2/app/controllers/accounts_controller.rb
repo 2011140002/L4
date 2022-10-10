@@ -12,7 +12,7 @@ class AccountsController < ApplicationController
     pass = params[:pass]
     if Account.find_by(uid: uid, pass: pass)
       session[:login_uid] = uid
-      redirect_to 'error'
+      redirect_to 'main'
     else
       session[:login_uid] = nil
       render 'error'
