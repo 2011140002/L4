@@ -1,20 +1,13 @@
 class AccountsController < ApplicationController
   def main
     if session[:login_uid] != nil 
-      render 'main'
+      render root_path
     else
-      render 'login'
+      render get_login_path
     end
   end
   
   def login
-    # account = Account.find_by(uid: params[:uid])
-    # if account && account[:pass] == params[:pass]
-    #   session[:login_uid] = params[:uid]
-    #   redirect_to root_path
-    # else
-    #   render'error'
-    # end
     uid = params[:uid]
     pass = params[:pass]
     logger.debug(uid)
