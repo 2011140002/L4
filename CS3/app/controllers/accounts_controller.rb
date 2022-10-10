@@ -1,7 +1,7 @@
 class AccountsController < ApplicationController
   def main
     if session[:login_uid] != nil 
-      render root_path
+      render 'main'
     else
       render 'login'
     end
