@@ -10,7 +10,6 @@ class AccountsController < ApplicationController
   def login
     uid = params[:uid]
     pass = params[:pass]
-    logger.debug((Account.find_by(uid: uid, pass: pass)).inspect)
     if Account.find_by(uid: uid, pass: pass) != nil
       session[:login_uid] = uid
       redirect_to '/'
